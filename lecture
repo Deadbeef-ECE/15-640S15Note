@@ -5,4 +5,24 @@ End-to-End Reasoning
 (2)Large File Transfer
 chunk:recovery(TCP feature)
 
+Make DS faster:
+(1)delay: processing delay, transimission delay(don't care), queueing delay(dominate)
+
+Queueing Theory:
+Properties(consider AT MOST 2 OUT of 3):
+(1) Efficiency(resource utilization); 
+(2) Crispness(response time); 
+(3) Freedom(no advance reservations, just use when needed).
+
+Latency and Bandwith:
+delay-Bandwith product(abort the request in the midway).
+
+Latency(killer, not bandwith):hard to improve
+Bandwith(improved through parallelism)
+
+Many software and systems trends to increase the Latency
+
+Impact of Long Latency:
+synchronous model of RPC become infeasible
+
 
