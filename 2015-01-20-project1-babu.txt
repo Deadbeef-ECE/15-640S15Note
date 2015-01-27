@@ -1,0 +1,61 @@
+15-440 Project 1 handout discussion
+
+In this project you will write your own RPC code to allow remote file
+operations using open, read, write, ... 
+
+Rather than write programs to make use of your RPC, we will use
+existing programs written to use local file operations, and interpose
+on their library calls.  E.g., any call to open will be intercepted,
+and your RPC version will be executed instead.  
+
+The handout goes over some of the details of what you will need to
+write, and the specific functions to handle.  We will provide some
+starter code for networking and a template for interposing on calls.  
+
+Lets start by writing a simple program that uses files.  (see test
+code) Use "man 2 open" ... to get more info on the open, read, ...
+calls.  
+
+This code just opens a file and reads out 10 bytes.  We can use the
+ldd tools to see that the binary actually requires several shared
+libraries.  These are loaded when the program starts to run.  We can
+use the nm tool to see the symbol table for our binary.  The entries
+without addresses and markde with "U" are not defined -- these will be
+dynamically linked when the program begins to run.  readelf --dyn-syms
+is also useful, as it works for binaries that have their symbol tables
+stripped off as well.  
+
+This is where interposition comes in.  We can force the system to load
+some other library first, so the functions are called in this other
+library.  We do this using the LD_PRELOAD environement variable when
+executing a program.  Let us use the sample interposition library.
+This code interposes on the open call.  The new call prints a message,
+and then simply redirects to the original one.  Let us run our test
+program with this library: 
+	e.g. LD_PRELOAD=../interpose/mylib.so ./test foo
+
+Note the additional information from the interposing library.  
+
+For project 1, you will interpose on several file access calls,
+including one we made up for this class (dirtree).  Ultimately, you
+will make all of these perform RPC to a server, which executes the
+operations.  So, your local program will actually perform operations
+on the remote directory of the server.  Your goal is to write the RPC
+mechanisms yourself, serializing data, parameters, return values, etc.
+as needed.  We have included many hints to help you out in the project
+document, and will post more to Piazza if needed.  
+
+(Time permitting, we will look at stat.  stat is actually implemented
+at the binary level as __xstat.  You need to interpose on this, not
+stat itself).  
+
+For checkpoint 1, you just need to get basic "pass-through"
+interposition working and some basic networking.  At your server, you
+just need to print out which calls were used.  Demo.
+
+This project will be autograded.  Everyone should be able to log into
+https://autolab.cs.cmu.edu using your Andrew credentials (see link at
+bottom of login page).  Requirements for the autograder and how to
+submit your solutions are provided in the project handout.  
+
+
