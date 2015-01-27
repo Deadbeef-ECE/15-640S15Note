@@ -1,4 +1,4 @@
-Jan 22 Lecture4
+Jan/22 Lecture4
 End-to-End Reasoning
 
 (1)RPC with TCP & UDP
@@ -25,4 +25,4 @@ Many software and systems trends to increase the Latency
 Impact of Long Latency:
 synchronous model of RPC become infeasible
 
-
+Jan/26 Lecture4
