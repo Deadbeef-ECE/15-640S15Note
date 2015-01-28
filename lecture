@@ -26,3 +26,32 @@ Impact of Long Latency:
 synchronous model of RPC become infeasible
 
 Jan/26 Lecture4
+Caching
+Then only technique to reduce end-to-end latency
+Local storage used for copies is referred to as cache
+
+Simple Cache Metrics
+References, Hits, Misses
+Miss Ration = Misses/References
+Hit Ratio = Hits/References = (1 - Miss Ration)
+Expected cost of a reference = (Miss Ration * cost of miss) + (Hit Ration * cost of hit)
+Cache Advantage = (Cost of Miss/Cost of Hit)
+
+Key Question:
+(1) Fetch policy(when & why)
+(2) Update propagation policy
+(3) Cache replacement policy
+
+Fetch Policy:
+Approach 1: Full Replication(dropbox)
+Every participating machine gets a full and complete copy.
+All date is fetched in advance.
+Shortcomings: Coarse-grain, non-selective management of data
+
+Approach 2: on-demand caching(AFS)
+Fine-grained and selective approach to data management.
+- OS modification
++ total application transparency
++ enable demand caching
+
+
