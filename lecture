@@ -1,4 +1,4 @@
-Jan/22 Lecture4
+Jan/22 Lecture 4
 End-to-End Reasoning
 
 (1)RPC with TCP & UDP
@@ -25,7 +25,9 @@ Many software and systems trends to increase the Latency
 Impact of Long Latency:
 synchronous model of RPC become infeasible
 
-Jan/26 Lecture4
+==============================================================================
+
+Jan/26 Lecture 5
 Caching
 Then only technique to reduce end-to-end latency
 Local storage used for copies is referred to as cache
@@ -53,5 +55,17 @@ Fine-grained and selective approach to data management.
 - OS modification
 + total application transparency
 + enable demand caching
+
+=============================================================================
+
+Jan/29 Lecture 6
+on-demand Caching
+
+
+
+
+
+
+
 
 
