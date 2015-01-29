@@ -61,6 +61,62 @@ Fine-grained and selective approach to data management.
 Jan/29 Lecture 6
 on-demand Caching
 
+CDN(Content Distribution Network): 3rd-party caching
+IC: Intrinsic Content(cacheable)
+PC: Parasitic Content(IC+PC uncacheable)
+
+**edge caching
+
+Key Question:
+(1) Fetch Policy
+(2) Update propagation Policy
+(3) Cahce Replacement Policy
+
+Cost: (1/Speed)*size + Latency
+Spatial locality(of reference)
+Remote data more coarsely addressable than local.
+
+FETCH POLICY:
+    Combination: fetch more than need on miss
+    Advantage:
+    (1) amortize the cost;
+    (2) assumption sometimes violated
+    Disadvantage:
+    (1) Useless content may hurt.
+
+    Spatial & Temporal locality
+    caching tightly combines these assumptions;
+    one can exist without the ohter;
+
+UPDATE PROPAGATION POLICY:
+One-copy semantics
+    Cache Consistency:
+    why hard:
+    (1) Physical master copy may not exist
+    (2) Network break(users-> master copy)
+    (3) Intense read and write sharing across sites(increase traffic)
+
+    Cache from the cloud(Center and Edge)
+
+    1.Broadcast Invalidations:
+    Notify every caching site on every update.
+    
+    2. Check on use:
+    reader checks msater copy before each use(waste a lot of time);
+
+session semantics
+    check when access entire file or large block;
+    (applying check only when file is open:upadte and the changes each time) 
+    Advantage & Disadvantage(See slides)
+    
+
+
+
+
+
+
+
+
 
 
 
