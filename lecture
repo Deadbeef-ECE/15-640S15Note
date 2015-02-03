@@ -95,7 +95,7 @@ One-copy semantics
     (1) Physical master copy may not exist
     (2) Network break(users-> master copy)
     (3) Intense read and write sharing across sites(increase traffic)
-
+    
     Cache from the cloud(Center and Edge)
 
     1.Broadcast Invalidations:
@@ -110,8 +110,35 @@ session semantics
     Advantage & Disadvantage(See slides)
     
 ==================================================================================
-Feb/3  Lecture 7
 
+Feb/3  Lecture 7
+Callback(one-copy semantics)
+    Advantage & Disadvantage (see slides)
+
+Leases(protocal)
+    Caching sites obtains finit-duration(typically few seconds) control from master copy.
+    - multiple sites can obtain read lease but only one can write lease.
+    - leases need to be renewed which means control will expire with lease;
+
+    Advantage & Disadvantage(see slides)
+
+    Lease Renewal(network latency & lease durtion)
+
+Turn off caching everywhere in write-sharing situation(Advantage & Disadvantage in slide)
+
+Faith-Based Caching
+    Basic idea:
+    -Blindly assume cached data is valid for a while;
+    -Periodically check;
+    -No communication needed during trust period.
+    
+    Advantage & Disadvantage(see slides)
+
+Pass the buck
+    Basic idea:
+    Let the user trigger cache revalidation...
+
+Summary: 7 strategies for Cache Consistency.
 
 
 
