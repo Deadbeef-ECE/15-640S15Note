@@ -140,7 +140,14 @@ Pass the buck
 
 Summary: 7 strategies for Cache Consistency.
 
+=========================================================================
 
+Feb/5  Lecture 8
+Concurrency
+Processes manipulation & IPC
+Thread
+Pros & Cons of Thread-based Designs(see slides)
+select()
 
 
 
