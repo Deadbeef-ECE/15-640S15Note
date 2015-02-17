@@ -25,7 +25,7 @@ Many software and systems trends to increase the Latency
 Impact of Long Latency:
 synchronous model of RPC become infeasible
 
-==============================================================================
+================================================================================
 
 Jan/26 Lecture 5
 Caching
@@ -56,7 +56,7 @@ Fine-grained and selective approach to data management.
 + total application transparency
 + enable demand caching
 
-=============================================================================
+===================================================================================
 
 Jan/29 Lecture 6
 on-demand Caching
@@ -140,7 +140,7 @@ Pass the buck
 
 Summary: 7 strategies for Cache Consistency.
 
-=========================================================================
+==================================================================================
 
 Feb/5  Lecture 8
 Concurrency
@@ -149,9 +149,92 @@ Thread
 Pros & Cons of Thread-based Designs(see slides)
 select()
 
+==================================================================================
 
+Feb/10 Lecture 9
 
+Didn't go to class because of EOC;
 
+==================================================================================
+
+Feb/12 Lecture 10
+
+MapReduce
+Framework for Distributed Computation
+
+Why hard?
+    - Network Communication
+    - Problem Disagnosis
+    - Security
+    - Storage Scalability
+    - Environment Issues
+
+A DS Narrow Waist - MapReduce(Like IP in Network OSI Layer)
+
+Goals of MapReduce:
+    - Minimize network traffic
+    - Load balance
+    - Parallelize/schedule taks easily
+    - Fault-tolerant
+
+Map & Reduce(distributed run-time)
+    - Google's Version
+    map(k1, v1)           =>    <k2, v2>
+    reduce(k2, [v2...])   =>    <k3, v3>
+    
+Why are Map and Reduce good abstraction for a DS? 
+Break down a huge problem into smaller ones.
+
+MapReduce assumptions
+    - Data in some sort of <k,v> record format
+    - Data comes from DFS
+    - 
+    -
+
+Problems:
+    - Movement of data to reducers
+    - Crashing master or worker nodes
+    - Slow mappers & reducers
+    - Bad record..
+
+Pre-reduce with combiners:
+    - Minimize data Movement
+
+=================================================================================
+
+Feb/17  Lecture 11
+
+Recap: Key Questions
+Cache:
+    Fetch policy
+    Update propagation policy
+    Replacement policy(only matters if cache space < cloud space)
+
+Cache Replacement Policy
+    - Idea victim: Very large obj that is not needed for a long time and is very 
+      cheap to fetch again.
+    - uniform fetch cost 
+    - Non-uniform fetch cost(higher system layers)
+
+Predicting Distance to Next Reference
+    OPT(LRU)
+
+Stack Property
+    Adding cache space never hurts
+
+Working Set
+    WorkingSet(T):set of distinct data objects accessed in T.
+    - size of the set matters
+    - 
+    Capture adequacy of cache size relative to program behavior
+
+When LRU Doesn't Work so Well
+    - purely sequential access -> no locality at all(only adds overhead)
+    - purely random access -> being smart is useless
+    - why shared cache for multicpus() 
+
+Adaptive Repalcement Cache(ARC)
+    self-tuning algorithm
 
 
 
